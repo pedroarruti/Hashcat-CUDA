@@ -5,7 +5,7 @@
 
 #define NEW_SIMD_CODE
 
-//#include <cuda_runtime.h>
+#include <cuda_runtime.h>
 
 #include "inc_vendor.h"
 #include "inc_types.h"
@@ -46,6 +46,8 @@ DECLSPEC void m01400m (u32 *w, const u32 pw_len, KERN_ATTR_VECTOR ())
    */
 
   u32 w0l = w[0];
+
+  //printf("il_cnt: %d \n", il_cnt);
 
   for (u32 il_pos = 0; il_pos < il_cnt; il_pos += VECT_SIZE)
   //for (u32 il_pos = index; il_pos < il_cnt; il_pos += stride)
@@ -200,6 +202,12 @@ DECLSPEC void m01400s (u32 *w, const u32 pw_len, KERN_ATTR_VECTOR ())
    */
 
   u32 w0l = w[0];
+
+  //printf("blockIdx: %d, threadIdx: %d \n", blockIdx.x, threadIdx.x);
+  //printf("blockDim: %d \n", blockDim.x);
+  //printf("threadIdx: %d \n", threadIdx.x);
+  //printf("gridDim: %d \n", gridDim.x);
+  //printf("il_cnt: %d \n", il_cnt);
 
   for (u32 il_pos = 0; il_pos < il_cnt; il_pos += VECT_SIZE)
   //for (u32 il_pos = index; il_pos < il_cnt; il_pos += stride)
