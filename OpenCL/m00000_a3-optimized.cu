@@ -37,8 +37,8 @@ DECLSPEC void m00000m (u32 *w, const u32 pw_len, KERN_ATTR_VECTOR ())
    * modifier
    */
 
-  const u64 gid = get_global_id (0);
-  const u64 lid = get_local_id (0);
+  const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
+  const u64 lid = threadIdx.x;
 
   /**
    * base
@@ -209,8 +209,8 @@ DECLSPEC void m00000s (u32 *w, const u32 pw_len, KERN_ATTR_VECTOR ())
    * modifier
    */
 
-  const u64 gid = get_global_id (0);
-  const u64 lid = get_local_id (0);
+  const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
+  const u64 lid = threadIdx.x;
 
   /**
    * base
@@ -435,7 +435,7 @@ KERNEL_FQ void m00000_m04 (KERN_ATTR_VECTOR ())
    * base
    */
 
-  const u64 gid = get_global_id (0);
+  const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
 
   if (gid >= gid_max) return;
 
@@ -473,7 +473,7 @@ KERNEL_FQ void m00000_m08 (KERN_ATTR_VECTOR ())
    * base
    */
 
-  const u64 gid = get_global_id (0);
+  const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
 
   if (gid >= gid_max) return;
 
@@ -511,7 +511,7 @@ KERNEL_FQ void m00000_m16 (KERN_ATTR_VECTOR ())
    * base
    */
 
-  const u64 gid = get_global_id (0);
+  const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
 
   if (gid >= gid_max) return;
 
@@ -549,7 +549,7 @@ KERNEL_FQ void m00000_s04 (KERN_ATTR_VECTOR ())
    * base
    */
 
-  const u64 gid = get_global_id (0);
+  const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
 
   if (gid >= gid_max) return;
 
@@ -587,7 +587,7 @@ KERNEL_FQ void m00000_s08 (KERN_ATTR_VECTOR ())
    * base
    */
 
-  const u64 gid = get_global_id (0);
+  const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
 
   if (gid >= gid_max) return;
 
@@ -625,7 +625,7 @@ KERNEL_FQ void m00000_s16 (KERN_ATTR_VECTOR ())
    * base
    */
 
-  const u64 gid = get_global_id (0);
+  const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
 
   if (gid >= gid_max) return;
 
