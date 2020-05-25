@@ -36,16 +36,18 @@ DECLSPEC void m01400m (u32 *w, const u32 pw_len, KERN_ATTR_VECTOR ())
    */
 
   const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
-  const u64 lid = threadIdx.x;
+  //const u64 lid = threadIdx.x;
 
-  int index = blockIdx.x * blockDim.x + threadIdx.x;
-  int stride = blockDim.x * gridDim.x;
+  //int index = blockIdx.x * blockDim.x + threadIdx.x;
+  //int stride = blockDim.x * gridDim.x;
 
   /**
    * loop
    */
 
   u32 w0l = w[0];
+
+  printf("il_cnt: %d \n", il_cnt);
 
   for (u32 il_pos = 0; il_pos < il_cnt; il_pos += VECT_SIZE)
   //for (u32 il_pos = index; il_pos < il_cnt; il_pos += stride)
@@ -160,10 +162,10 @@ DECLSPEC void m01400s (u32 *w, const u32 pw_len, KERN_ATTR_VECTOR ())
    */
 
   const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
-  const u64 lid = threadIdx.x;
+  //const u64 lid = threadIdx.x;
 
-  int index = blockIdx.x * blockDim.x + threadIdx.x;
-  int stride = blockDim.x * gridDim.x;
+  //int index = blockIdx.x * blockDim.x + threadIdx.x;
+  //int stride = blockDim.x * gridDim.x;
 
   /**
    * digest
@@ -358,7 +360,7 @@ KERNEL_FQ void m01400_m08 (KERN_ATTR_VECTOR ())
 
   if (gid >= gid_max) return;
 
-  u32 *w;
+  u32 w[16];
 
   w[ 0] = pws[gid].i[ 0];
   w[ 1] = pws[gid].i[ 1];

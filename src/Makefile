@@ -186,21 +186,21 @@ CFLAGS_ZLIB             += -DIOAPI_NO_64
 endif
 
 ifeq ($(DEBUG),0)
-CFLAGS                  += -O0
+CFLAGS                  += -O2
 ifneq ($(UNAME),Darwin)
 LFLAGS                  += -s
 endif
 else
 ifeq ($(DEBUG),1)
 ifneq ($(UNAME),Darwin)
-CFLAGS                  += -DDEBUG -O0 -ggdb
+CFLAGS                  += -DDEBUG -Og -ggdb
 else
 CFLAGS                  += -DDEBUG -O0 -ggdb
 endif
 else
 ifeq ($(DEBUG),2)
 ifneq ($(UNAME),Darwin)
-CFLAGS                  += -DDEBUG -O0 -ggdb
+CFLAGS                  += -DDEBUG -Og -ggdb
 else
 CFLAGS                  += -DDEBUG -O0 -ggdb
 endif
