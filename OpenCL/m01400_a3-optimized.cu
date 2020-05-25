@@ -5,7 +5,7 @@
 
 #define NEW_SIMD_CODE
 
-#include <cuda_runtime.h>
+//#include <cuda_runtime.h>
 
 #include "inc_vendor.h"
 #include "inc_types.h"

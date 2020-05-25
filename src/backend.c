@@ -1766,7 +1766,7 @@ int hc_cuLaunchKernel (hashcat_ctx_t *hashcat_ctx, CUfunction f, unsigned int gr
   gridDimX = 1024;
   //gridDimY = 1;
   //gridDimZ = 1; 
-  //blockDimX = 128;
+  blockDimX = 128;
   //blockDimY = 1;
   //blockDimZ = 1;
 
