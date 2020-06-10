@@ -341,7 +341,7 @@ ALIAS_nv_sm50_or_higher                         3       18700   8       A       
 
 #### Pruebas para el kernel CUDA 1400 
 ALIAS_nv_sm50_or_higher                         3       1400    1       1       1
-
+ALIAS_nv_real_simd                              3       1400    1       1       1
 
 ##
 ## The following cards were manually tuned, as example
@@ -369,3 +369,4 @@ GeForce_GTX_TITAN                               3       9900    2       A       
 
 DEVICE_TYPE_CPU                                 *       15700   1       1       1
 DEVICE_TYPE_GPU                                 *       15700   1       1       1
+
