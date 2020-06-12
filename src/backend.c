@@ -1763,13 +1763,6 @@ int hc_cuLaunchKernel (hashcat_ctx_t *hashcat_ctx, CUfunction f, unsigned int gr
 
   CUDA_PTR *cuda = (CUDA_PTR *) backend_ctx->cuda;
 
-  gridDimX = 1024;
-  //gridDimY = 1;
-  //gridDimZ = 1; 
-  blockDimX = 128;
-  //blockDimY = 1;
-  //blockDimZ = 1;
-
   const CUresult CU_err = cuda->cuLaunchKernel (f, gridDimX, gridDimY, gridDimZ, blockDimX, blockDimY, blockDimZ, sharedMemBytes, hStream, kernelParams, extra);
 
   if (CU_err != CUDA_SUCCESS)
@@ -3618,6 +3611,10 @@ int run_kernel (hashcat_ctx_t *hashcat_ctx, hc_device_param_t *device_param, con
     }
 
     if (hc_cuEventRecord (hashcat_ctx, device_param->cuda_event1, device_param->cuda_stream) == -1) return -1;
+
+    num_elements = 1024;
+
+    kernel_threads = 128;
 
     if (hc_cuLaunchKernel (hashcat_ctx, cuda_function, num_elements, 1, 1, kernel_threads, 1, 1, dynamic_shared_mem, device_param->cuda_stream, device_param->kernel_params, NULL) == -1) return -1;
 
