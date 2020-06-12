@@ -8096,7 +8096,7 @@ int backend_session_begin (hashcat_ctx_t *hashcat_ctx)
        */
 
       char source_file[256] = { 0 };
-      if (device_param->is_cuda && (kern_type == 0 || kern_type == 100 || kern_type == 1000 || kern_type == 1400 || kern_type == 6000 || kern_type ==  17400)){
+      if (device_param->is_cuda && (kern_type == 0 || kern_type == 1000 || kern_type == 1400 || kern_type == 6000 || kern_type ==  17400)){
         generate_source_kernel_filename_cuda (user_options->slow_candidates, hashconfig->attack_exec, user_options_extra->attack_kern, kern_type, hashconfig->opti_type, folder_config->shared_dir, source_file);
       }
       else {
