@@ -38,19 +38,13 @@ DECLSPEC void m01400m (u32 *w, const u32 pw_len, KERN_ATTR_VECTOR ())
   const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
   const u64 lid = threadIdx.x;
 
-  //int index = blockIdx.x * blockDim.x + threadIdx.x;
-  //int stride = blockDim.x * gridDim.x;
-
   /**
    * loop
    */
 
   u32 w0l = w[0];
 
-  //printf("il_cnt: %d \n", il_cnt);
-
   for (u32 il_pos = 0; il_pos < il_cnt; il_pos += VECT_SIZE)
-  //for (u32 il_pos = index; il_pos < il_cnt; il_pos += stride)
   {
     const u32x w0r = words_buf_r[il_pos / VECT_SIZE];
 
@@ -164,9 +158,6 @@ DECLSPEC void m01400s (u32 *w, const u32 pw_len, KERN_ATTR_VECTOR ())
   const u64 gid = blockIdx.x * blockDim.x + threadIdx.x;
   const u64 lid = threadIdx.x;
 
-  //int index = blockIdx.x * blockDim.x + threadIdx.x;
-  //int stride = blockDim.x * gridDim.x;
-
   /**
    * digest
    */
@@ -203,14 +194,7 @@ DECLSPEC void m01400s (u32 *w, const u32 pw_len, KERN_ATTR_VECTOR ())
 
   u32 w0l = w[0];
 
-  //printf("blockIdx: %d, threadIdx: %d \n", blockIdx.x, threadIdx.x);
-  //printf("blockDim: %d \n", blockDim.x);
-  //printf("threadIdx: %d \n", threadIdx.x);
-  //printf("gridDim: %d \n", gridDim.x);
-  //printf("il_cnt: %d \n", il_cnt);
-
   for (u32 il_pos = 0; il_pos < il_cnt; il_pos += VECT_SIZE)
-  //for (u32 il_pos = index; il_pos < il_cnt; il_pos += stride)
   {
     const u32x w0r = words_buf_r[il_pos / VECT_SIZE];
 
