@@ -346,6 +346,11 @@ ALIAS_nv_real_simd	                        3	0	1	1	1
 ALIAS_nv_real_simd	                        3	1000	1	1	1
 ALIAS_nv_real_simd	                        3	6000	1	1	1
 ALIAS_nv_real_simd	                        3	17400	1	1	1
+#ALIAS_nv_real_simd                              0	1400    1	1	1
+#ALIAS_nv_real_simd                              0	0	1	1	1
+#ALIAS_nv_real_simd                              0	1000    1	1	1
+#ALIAS_nv_real_simd                              0	6000    1	1	1
+#ALIAS_nv_real_simd                              0	17400   1	1	1
 
 ##
 ## The following cards were manually tuned, as example
